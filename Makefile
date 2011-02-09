@@ -58,10 +58,10 @@ $(foreach target,$(TARGETS),$(eval $(call BUILD_template,$(target))))
 clean:
 	rm -rf build
 	rm -rf temp
-	rm *.tar.gz
+	rm -f *.tar.gz
 
 dist: all
 	mv build smac-api
-	tar czf smac-api.tar.gz smac-api
+	tar czf smac-api-$(shell git tag | tail -n 1).tar.gz smac-api
 	mv smac-api build
 	
