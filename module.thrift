@@ -16,7 +16,7 @@ service Module {
     bool ping()
     
     /** Returns the unique ID of this module on the whole smac network */
-    types.ModuleID get_id()
+    types.ModuleID getID()
     
     /** Restarts the receiving module */
     oneway void restart()
@@ -24,22 +24,22 @@ service Module {
     /** Shuts down the receiving module */
     oneway void shutdown()
     
-    list<types.TaskStatus> get_all_tasks()
+    list<types.TaskStatus> getAllTasks()
     
-    types.TaskStatus get_task(1: types.TaskID task_id)
+    types.TaskStatus getTask(1: types.TaskID task_id)
                       throws (1: errors.TaskNotFound invalid_task)
     
-    void abort_task(1: types.TaskID task_id)
+    void abortTask(1: types.TaskID task_id)
             throws (1: errors.TaskNotFound invalid_task,
                     2: errors.OperationNotSupported invalid_op)
     
     /** Returns true if the task was running */
-    bool pause_task(1: types.TaskID task_id)
+    bool pauseTask(1: types.TaskID task_id)
             throws (1: errors.TaskNotFound invalid_task,
                     2: errors.OperationNotSupported invalid_op)
     
     /** Returns true if the task was paused */
-    bool resume_task(1: types.TaskID task_id)
+    bool resumeTask(1: types.TaskID task_id)
              throws (1: errors.TaskNotFound invalid_task,
                      2: errors.OperationNotSupported invalid_op)
 }

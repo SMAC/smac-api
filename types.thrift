@@ -14,6 +14,7 @@ typedef string ModuleID
 
 
 enum TaskStatus {
+    WAITING
     RUNNING
     PAUSED
     COMPLETED
